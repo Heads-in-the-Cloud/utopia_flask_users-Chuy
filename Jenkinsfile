@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKER_HUB_REPO = "chuymedina96/utopia_flask_users"
-        CONTAINER_NAME = "utopia-flask-users"
+        CONTAINER_NAME = "utopia-flask-users" 
         BUILD_NUMBER = 1
     }
     stages {
