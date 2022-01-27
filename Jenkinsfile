@@ -2,7 +2,8 @@ pipeline {
     agent any
     environment {
         DOCKER_HUB_REPO = "chuymedina96/utopia_flask_users"
-        CONTAINER_NAME = "utopia-flask-users"
+        CONTAINER_NAME = "utopia-flask-users" 
+        BUILD_NUMBER = 1
     }
     stages {
         stage('Build') {
@@ -21,7 +22,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script{
-                    //sh 'BUILD_NUMBER = ${BUILD_NUMBER}'
+                    sh 'BUILD_NUMBER = ${BUILD_NUMBER}'
                     if (BUILD_NUMBER == "1") {
                         sh 'docker run --name $CONTAINER_NAME -d -p 5002:5002 $DOCKER_HUB_REPO'
                     }
